@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <input type="text" v-model="frase" v-on:keyup.enter="contador">
+    <p>La frase tiene {{cuenta}} letras "a"</p>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          frase: '',
+          cuenta: 0
+        }
+      },
+      methods: {
+        contador: function(){
+          var cant = 0;
+          for(var f=0; f<this.frase.length; f++){
+            if(this.frase[f]=='a' || this.frase[f]=='A')
+            cant++;
+          this.cuenta=cant;
+          }
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

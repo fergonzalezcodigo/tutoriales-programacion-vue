@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+
+    <p>
+      Ingrese primer valor:
+      <input type="number" v-model="valor1">
+    </p>
+    <p>
+      Ingrese segundo valor:
+      <input type="number" v-model="valor2">
+    </p>
+    <p>
+      <input type="radio" v-model="operacion" value="suma 1"> Sumar
+    </p>
+    <p>
+      <input type="radio" v-model="operacion" value="resta"> Resta
+    </p>
+    <p>
+      <button v-on:click="operar">Operar</button>
+    </p>
+    <p>El resultado es: {{resultado}}</p>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          valor1: "",
+          valor2: "",
+          operacion: 'suma 1',
+          resultado: ""
+        }
+      },
+      methods: {
+        operar: function(){
+          if(this.operacion === "suma 1"){
+            this.resultado = parseInt(this.valor1) + parseInt(this.valor2);
+          };
+          if(this.operacion === "resta"){
+            this.resultado = parseInt(this.valor1) - parseInt(this.valor2);
+          }
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

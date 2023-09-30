@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <div v-for="persona in personas">
+      <ul>
+        <li>{{persona.nombre}}</li>
+        <li>
+          {{persona.edad}}
+          <span v-if="persona.edad >= 18"> Mayor de edad</span>
+          <span v-else> Menor de edad</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          personas:
+          [
+            {
+              nombre: "José",
+              edad: 12
+            },
+            {
+              nombre: "Ana",
+              edad: 43
+            },
+            {
+              nombre: "Pedro",
+              edad: 4
+            },
+            {
+              nombre: "Maria",
+              edad: 12
+            }
+          ]
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

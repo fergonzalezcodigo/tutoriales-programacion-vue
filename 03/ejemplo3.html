@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <div v-show="numero == 50">
+      <h1>Número 50</h1>
+      <p>Estamos en la mitad</p>
+      <p>{{msg}}</p>
+    </div>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          msg: "Hola",
+          numero: 50
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

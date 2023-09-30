@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <p>Ingrese la clave:
+      <input type="password" v-model="clave1">
+    </p>
+    <p>Repita la clave:
+      <input type="password" v-model="clave2">
+    </p>  
+    <p v-if="clave1===clave2">Las claves son iguales.</p>
+    <p v-else>Las claves son distintas.</p>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          clave1 : '',
+        clave2 : ''
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

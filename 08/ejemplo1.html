@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <table border="1">
+      <tr><td>Código</td><td>Descripción</td><td>Precio</td></tr>
+      <template v-for="articulo in articulos">
+        <tr>
+          <td>{{articulo.codigo}}</td>
+          <td>{{articulo.descripcion}}</td>
+          <td>{{articulo.precio}}</td>
+        </tr>
+      </template>
+    </table>
+    <form v-on:submit.prevent="agregarArticulo">
+      <p>
+        Ingrese Código: <input type="number" v-model="codigo">
+      </p>
+      <p>
+        Ingrese descripcion: <input type="text" v-model="descripcion">
+      </p>
+      <p>
+        Ingrese precio: <input type="text" v-model="precio">
+      </p>
+      <p>
+        <input type="submit" value="Agregar">
+      </p>
+    </form>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          codigo: '',
+          descripcion: '',
+          precio: '',
+          articulos: 
+          [
+            {
+              codigo: 1,
+              descripcion: 'papas',
+              precio: 34
+            }
+          ]
+        }
+      },
+      methods:{
+        agregarArticulo: function(){
+          this.articulos.push({
+            codigo: this.codigo,
+            descripcion: this.descripcion,
+            precio: this.precio
+          })
+          this.codigo = "",
+          this.descripcion = "",
+          this.precio = ""
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

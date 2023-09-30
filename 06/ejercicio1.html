@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <input type="number" v-model="num1">
+    <input type="number" v-model="num2">
+    <button v-on:click="operacion">Sumar</button>
+    <p>{{resultado}}</p>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          resultado: "",
+          num1: null,
+          num2: null
+        }
+      },
+      methods: {
+          operacion: function(){
+          this.resultado = this.num1 + this.num2;
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>

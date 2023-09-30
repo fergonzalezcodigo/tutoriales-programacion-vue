@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="myApp">
+    <p>
+      <input type="radio" value="Sin estudios" v-model="estudios" id="sinestudios1">
+      <label for="sinestudios1">Sin estudios</label>
+    </p>
+    <p>
+      <input type="radio" value="Primarios pordefecto" v-model="estudios" id="primarios2">
+      <label for="primarios2">Primarios</label>
+    </p>
+    <p>
+      <input type="radio" value="Secundarios value" v-model="estudios" id="secundarios3">
+      <label for="secundarios3">Secundarios</label>
+    </p>
+    <p>
+      <input type="radio" value="Universitarios" v-model="estudios" id="universitarios4">
+      <label for="universitarios4">Universitarios</label>
+    </p>
+    <p>Sus estudios son: {{estudios}}</p>
+  </div>
+
+  <script>
+    
+    const app = Vue.createApp({
+      data(){
+        return{
+          estudios: "Primarios pordefecto"
+        }
+      }
+    })
+    app.mount('#myApp')
+
+  </script>
+</body>
+</html>
